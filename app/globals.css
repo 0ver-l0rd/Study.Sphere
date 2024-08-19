@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+
+    --radius: 0.5rem;
+    --navigation-height: 4.8rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+  .highlighted-keys .active rect:first-child {
+    fill-opacity: 0.4;
+  }
+
+  .highlighted-keys .active rect:not(:first-child) {
+    stroke-opacity: 1;
+  }
+
+  .highlighted-keys .active path {
+    fill-opacity: 1;
+  }
+}
+.full-screen {
+    width: 100vw;  /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    position: absolute; /* Or fixed, depending on the use case */
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Optional: to avoid scrollbars */
+    z-index: -1;
+  }
+
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: rgb(0 0 0 / 56%) 0px 3px 12px;
+  }
+
+  .text-gradient {
+    background: linear-gradient(to right bottom, rgb(255, 255, 255) 30%, rgba(255, 255, 255, 0.38));
+    background-clip: text;
+    color: transparent;
+  }
+
+  .mask-radial-faded {
+    mask-image: radial-gradient(circle at center center, black, transparent 80%)
+  }
+
+  .mask-linear-faded {
+    mask-image: linear-gradient(black, transparent 70%)
+  }
+
+  .mask-keyboard {
+    mask-image: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.57) 33.98%, black 100%);
+  }
+
+  .mask-shortcutkeys {
+    mask-image: linear-gradient(to right, transparent, black 40%, black calc(60%), transparent 100%);
+  }
+}
+
+
+@layer base {
+  * {
+    @apply border-border !scroll-smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  button {
+    @apply active:outline-none;
+  }
+}
+
+@layer utilities {
+  .heading {
+    @apply font-bold text-4xl md:text-5xl text-center;
+  }
+}
+
