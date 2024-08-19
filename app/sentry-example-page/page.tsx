@@ -48,8 +48,8 @@ export default function Page() {
             fontSize: "14px",
             margin: "18px",
           }}
-          onClick={() => {
-            Sentry.startSpan({
+          onClick={async () => {
+            await Sentry.startSpan({
               name: 'Example Frontend Span',
               op: 'test'
             }, async () => {
@@ -65,7 +65,7 @@ export default function Page() {
 
         <p>
           Next, look for the error on the{" "}
-          <a href="https://javascript-mastery.sentry.io/issues/?project=4507222371729408">Issues Page</a>.
+          <a href="https://5398-6u.sentry.io/issues/?project=4507805974200400">Issues Page</a>.
         </p>
         <p style={{ marginTop: "24px" }}>
           For more information, see{" "}

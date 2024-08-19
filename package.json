@@ -19,7 +19,7 @@
     "@radix-ui/react-toast": "^1.2.1",
     "@react-three/drei": "^9.105.4",
     "@react-three/fiber": "^8.16.2",
-    "@sentry/nextjs": "^7.105.0",
+    "@sentry/nextjs": "^8.26.0",
     "@splinetool/react-spline": "^4.0.0",
     "@splinetool/runtime": "^1.9.6",
     "@stream-io/node-sdk": "^0.1.13",
