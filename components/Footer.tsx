@@ -21,8 +21,8 @@ const Footer = () => {
           journey to new heights?
         </h1>
         <p className="text-white-200 md:mt-10 my-5 text-center">
-          "Get started today, and let’s explore how we can work together to
-          achieve your goals."
+          Get started today, and let's explore how we can work together to
+          achieve your goals.
         </p>
         <a href="mailto:contact@jsmastery.pro">
           <MagicButton
