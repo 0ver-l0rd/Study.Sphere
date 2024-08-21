@@ -7,11 +7,11 @@ interface ButtonData {
 }
 
 const buttonData: ButtonData[] = [
-  { label: "Button 1", route: "/route1" },
-  { label: "Button 2", route: "/route2" },
-  { label: "Button 3", route: "/route3" },
+  { label: "Metaverce", route: "https://studyspheremv.netlify.app" },
+  { label: "Interview", route: "https://studysphereinterview.netlify.app" },
+  { label: "Chat", route: "https://ss-chat.onrender.com" },
   { label: "Button 4", route: "/route4" },
-  { label: "Button 5", route: "/route5" },
+  { label: "Button 5", route: "" },
 ];
 
 const ButtonStack: React.FC = () => {
@@ -147,7 +147,7 @@ const ButtonStack: React.FC = () => {
           boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.15)",
         }}
       >
-        Root Button
+        Menu
       </div>
     </div>
   );
