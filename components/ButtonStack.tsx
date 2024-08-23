@@ -7,11 +7,12 @@ interface ButtonData {
 }
 
 const buttonData: ButtonData[] = [
-  { label: "Metaverce", route: "https://studyspheremv.netlify.app" },
-  { label: "Interview", route: "https://studysphereinterview.netlify.app" },
+  { label: "Metaverse", route: "https://studyspheremv.netlify.app" },
+  { label: "MockInterview", route: "https://studysphereinterview.netlify.app" },
   { label: "Chat", route: "https://ss-chat.onrender.com" },
-  { label: "Button 4", route: "/route4" },
-  { label: "Button 5", route: "" },
+  { label: "Note", route: "https://studysphereplanner.netlify.app/" },
+  { label: "WhiteBoard", route: "https://studyspheredraw.netlify.app/" },
+  { label: "MockExam", route: "https://studysphereexam.netlify.app/" },
 ];
 
 const ButtonStack: React.FC = () => {
@@ -70,6 +71,14 @@ const ButtonStack: React.FC = () => {
     setIsOpen(!isOpen);
   };
 
+  const handleClick = (route: string) => {
+    if (route.startsWith("http")) {
+      window.location.href = route;
+    } else {
+      window.location.pathname = route;
+    }
+  };
+
   return (
     <div
       ref={containerRef}
@@ -100,13 +109,13 @@ const ButtonStack: React.FC = () => {
                 alignItems: "center",
                 justifyContent: "center",
                 cursor: "pointer",
-                transition: "transform 0.2s ease-out, opacity 0.2s ease-out", // Smooth transitions
+                transition: "transform 0.2s ease-out, opacity 0.2s ease-out",
                 opacity: isOpen ? 1 : 0,
                 zIndex: 10000,
                 boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.15)",
                 animation: isOpen
                   ? `slideIn 0.3s ease-out forwards ${index * 0.1}s`
-                  : `slideOut 0.3s ease-in forwards ${index * 0.1}s`, // Slide in/out animation
+                  : `slideOut 0.3s ease-in forwards ${index * 0.1}s`,
               }}
               onMouseDown={(e) => {
                 e.currentTarget.style.transform = `translateX(${sway * swayFactor}px) translateY(2px) scale(0.95)`;
@@ -115,12 +124,12 @@ const ButtonStack: React.FC = () => {
                 e.currentTarget.style.transform = `translateX(${sway * swayFactor}px) translateY(0px) scale(1)`;
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = `translateX(${sway * swayFactor}px) translateY(-5px) scale(1.05)`; // Hover effect
+                e.currentTarget.style.transform = `translateX(${sway * swayFactor}px) translateY(-5px) scale(1.05)`;
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.transform = `translateX(${sway * swayFactor}px) translateY(0px) scale(1)`; // Reset on leave
+                e.currentTarget.style.transform = `translateX(${sway * swayFactor}px) translateY(0px) scale(1)`;
               }}
-              onClick={() => alert(`Navigating to ${button.route}`)}
+              onClick={() => handleClick(button.route)}
             >
               {button.label}
             </div>
