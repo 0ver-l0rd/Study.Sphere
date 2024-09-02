@@ -12,7 +12,7 @@ const buttonData: ButtonData[] = [
   { label: "Chat", route: "https://ss-chat.onrender.com" },
   { label: "Note", route: "https://studysphereplanner.netlify.app/" },
   { label: "WhiteBoard", route: "https://studyspheredraw.netlify.app/" },
-  { label: "MockExam", route: "https://studysphereexam.netlify.app/" },
+  { label: "MockExam", route: "https://ss-exam.vercel.app/" },
 ];
 
 const ButtonStack: React.FC = () => {
