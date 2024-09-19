@@ -1,0 +1,123 @@
+.room {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 100vh;
+    padding: 10px 10px 20px;
+    background-color: #000319;
+    color:white;
+
+}
+
+.roomSidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.languageFieldWrapper {
+    padding: 2px 6px;
+    background-color: #582166;
+    border-radius: 5px;
+    color:white;
+}
+
+.languageField {
+    padding: 6px 10px;
+    background-color: #582166;
+    border: none;
+    outline: none;
+    text-transform: capitalize;
+    color:white;
+}
+
+.roomCodeEditor {
+    flex: 1;
+}
+
+.roomSidebarCopyBtn {
+    font-size: 75%;
+    font-weight: bold;
+    padding: 8px 15px;
+    color: white;
+    background-color: #582166;
+    border: 1px solid #582166;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.45s ease-in-out 0.05s;
+}
+.roomSidebarCopyBtn:hover {
+    color: white;
+    background-color: #582166bd;
+}
+
+.roomSidebarBtn {
+    font-size: 75%;
+    font-weight: bold;
+    padding: 10px 15px;
+    background-color: #582166;
+    border: 1px solid #582166;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.45s ease-in-out 0.05s;
+    color:white;
+}
+.roomSidebarBtn:hover {
+    color: white;
+    background-color: #582166bd;
+}
+
+.roomSidebarUsersWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.roomSidebarUsers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.roomSidebarUsersEach {
+    display: grid;
+    justify-items: center;
+}
+
+.roomSidebarUsersEachAvatar {
+    color: white;
+    border-radius: 5px;
+    min-width: 30px;
+    min-height: 30px;
+    padding: 5px;
+    font-size: small;
+
+    display: grid;
+    place-items: center;
+}
+
+.roomSidebarUsersEachName {
+    font-weight: bold;
+    font-size: small;
+}
+
+@media screen and (min-width: 991px) {
+    .room {
+        flex-direction: row;
+    }
+
+    .roomSidebar {
+        flex: 0.25;
+    }
+
+    .roomSidebar > *:nth-child(2) {
+        margin-top: auto;
+    }
+
+    .roomCodeEditor {
+        flex: 0.75;
+    }
+}

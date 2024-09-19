@@ -7,7 +7,7 @@ interface ButtonData {
 }
 
 const buttonData: ButtonData[] = [
-  { label: "Metaverse", route: "https://studyspheremv.netlify.app" },
+  { label: "Metaverse", route: "https://studyspheremv.netlify.app"},
   { label: "MockInterview", route: "https://studysphereinterview.netlify.app" },
   { label: "Chat", route: "https://ss-chat.onrender.com" },
   { label: "Note", route: "https://studysphereplanner.netlify.app/" },
