@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Summarizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #000319;
+            color: white;
+        }
+
+        .header{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin-bottom: 50px;
+        }
+
+        .submitButton{
+            background-color: forestgreen;
+            border-radius: 50px;
+            height: 40px;
+            width: 100px;
+            color: white;
+            font-size: 16px;
+            border: none;
+            margin-top: 15px;
+        }
+
+        .submitButton.enabled {
+            cursor: pointer;
+        }
+
+        .submitButton:hover.enabled{
+            transform: scale(1.01);
+            box-shadow: 0 0 25px forestgreen;
+        }
+
+        #backButton{
+            background-color: forestgreen;
+            border-radius: 50px;
+            height: 40px;
+            width: 100px;
+            color: white;
+            font-size: 16px;
+            border: none;
+            margin-top: 15px;
+        }        
+
+        #backButton:hover{
+            transform: scale(1.01);
+            box-shadow: 0 0 25px forestgreen;
+        }
+
+        h1 {
+            color: White;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid transparent;
+            border-radius: 20px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: forestgreen;
+            resize: none;
+            text-align: justify;
+        }
+
+        .dropzone {
+            width: 90%;
+            padding: 50px;
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+            transition: background-color 0.2s;
+        }
+
+        .dropzone.dragover {
+            background-color: #f0f0f0;
+            color: forestgreen;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .preview {
+            margin-top: 20px;
+        }
+
+        #uploadForm{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .preview iframe {
+            width: 500px;
+            height: 500px;
+            border: none;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+
+        #summaryContainer{
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+
+
+    <div class="header">
+        <h1>PDF Summarizer</h1>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+    </div>
+    <div id="formContainer" class="{% if summary %}hidden{% endif %}">
+        <form id="uploadForm" method="post" enctype="multipart/form-data">
+            <div id="dropzone" class="dropzone">
+                Drag and drop your PDF file here or click to select
+                <input type="file" name="file" accept="application/pdf" style="display: none;" id="fileInput">
+            </div>
+            <div id="preview" class="preview hidden">
+                <h2>File Preview:</h2>
+                <iframe id="pdfPreview" src=""></iframe>
+            </div>
+            <button type="submit" id="submitButton" class="submitButton" disabled>Summarize</button>
+        </form>
+    </div>
+    <div id="summaryContainer" class="{% if not summary %}hidden{% endif %}">
+        <h2>Summary:</h2>
+        <textarea rows="20" cols="80">{{ summary }}</textarea>
+        <button id="backButton">Back</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dropzone = document.getElementById('dropzone');
+            const fileInput = document.getElementById('fileInput');
+            const preview = document.getElementById('preview');
+            const pdfPreview = document.getElementById('pdfPreview');
+            const submitButton = document.getElementById('submitButton');
+            const formContainer = document.getElementById('formContainer');
+            const summaryContainer = document.getElementById('summaryContainer');
+            const backButton = document.getElementById('backButton');
+            
+            dropzone.addEventListener('click', () => {
+                fileInput.click();
+            });
+
+            dropzone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                dropzone.classList.add('dragover');
+            });
+
+            dropzone.addEventListener('dragleave', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                dropzone.classList.remove('dragover');
+            });
+
+            dropzone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                dropzone.classList.remove('dragover');
+
+                const files = e.dataTransfer.files;
+                if (files.length) {
+                    fileInput.files = files;
+                    showPreview(files[0]);
+                }
+            });
+
+            fileInput.addEventListener('change', () => {
+                if (fileInput.files.length) {
+                    showPreview(fileInput.files[0]);
+                } else {
+                    submitButton.disabled = true;
+                    submitButton.classList.remove('enabled');
+                }
+            });
+
+            function showPreview(file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    pdfPreview.src = e.target.result;
+                    preview.classList.remove('hidden');
+                    submitButton.disabled = false;
+                    submitButton.classList.add('enabled');
+                };
+                reader.readAsDataURL(file);
+            }
+
+            backButton.addEventListener('click', () => {
+                summaryContainer.classList.add('hidden');
+                formContainer.classList.remove('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+Flask==2.2.2
+PyPDF2==3.0.1
+openai==0.27.6
+SQLAlchemy==2.0.17
+google-api-python-client==2.86.0
+google-auth==2.23.0
+google-auth-oauthlib==1.0.0
+google-auth-httplib2==0.1.0
+psycopg2-binary==2.9.7
+werkzeug==2.2.2  # Compatible with Flask 2.2.2
+gunicorn==20.1.0
