@@ -6,14 +6,14 @@ const SignInPage = () => {
         <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
           <img
             alt=""
-            src="/img/hero_image.png"
+            src="logo.svg"
             className="absolute inset-0 h-full w-full object-cover opacity-80"
           />
 
           <div className="hidden lg:relative lg:block lg:p-12">
             <a className="block text-white" href="#">
               <span className="sr-only">Home</span>
-              <img src="/logo.png" className="h-15 sm:h-12"></img>
+              <img src="/logo.svg" className="h-15 sm:h-12"></img>
             </a>
 
             <h2 className="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
