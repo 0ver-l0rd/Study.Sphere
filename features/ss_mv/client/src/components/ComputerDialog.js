@@ -138,21 +138,31 @@ export default function ComputerDialog() {
               onClick: redirectToLink,
               style: { marginLeft: '8px' }, // Added margin for spacing
               children: "CourseGen"
+<<<<<<< HEAD
             }),
             
+=======
+            })
+>>>>>>> 6d525e19346469b7dcdd69e60e54e313ea181ee8
             _jsx(Button, {
               variant: "contained",
               color: "secondary",
               onClick: redirectToLink,
               style: { marginLeft: '8px' }, // Added margin for spacing
+<<<<<<< HEAD
               children: "White Bored"
             }),
             
+=======
+              children: "CourseGen"
+            })
+>>>>>>> 6d525e19346469b7dcdd69e60e54e313ea181ee8
             _jsx(Button, {
               variant: "contained",
               color: "secondary",
               onClick: redirectToLink,
               style: { marginLeft: '8px' }, // Added margin for spacing
+<<<<<<< HEAD
               children: "Code Collabrator"
             }),
 
@@ -191,6 +201,10 @@ export default function ComputerDialog() {
             
             
             
+=======
+              children: "CourseGen"
+            })
+>>>>>>> 6d525e19346469b7dcdd69e60e54e313ea181ee8
           ]}),
 
           // Video Grid section
