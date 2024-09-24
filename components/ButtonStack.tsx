@@ -7,12 +7,15 @@ interface ButtonData {
 }
 
 const buttonData: ButtonData[] = [
-  { label: "Metaverse", route: "https://studyspheremv.netlify.app"},
+  { label: "Metaverse", route: "https://studyspheremv.netlify.app" },
+  { label: "CourseGen", route: "https://studyspherecoursegen.netlify.app/" },
+  { label: "MockExam", route: "https://ss-exam.vercel.app/" },
   { label: "MockInterview", route: "https://studysphereinterview.netlify.app" },
-  { label: "Chat", route: "https://ss-chat.onrender.com" },
+  { label: "ResumeGen", route: "https://studysphereresumegen.netlify.app/" },
+  { label: "WebChat", route: "https://studyspherewebchat.netlify.app/" },
+  { label: "CodeCollab", route: "https://studyspherewebchat.netlify.app/" },
   { label: "Note", route: "https://studysphereplanner.netlify.app/" },
   { label: "WhiteBoard", route: "https://studyspheredraw.netlify.app/" },
-  { label: "MockExam", route: "https://ss-exam.vercel.app/" },
 ];
 
 const ButtonStack: React.FC = () => {

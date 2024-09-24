@@ -1,5 +1,6 @@
 ![alt text](./public/logo.svg)
 # StudySphere
+![Demo Animation](./public/dashdemo.gif)
 
 StudySphere is a cutting-edge collaborative learning platform that integrates powerful AI-driven tools to enhance learning, productivity, and real-time collaboration. The platform supports students and educators through AI-based generators, a metaverse, and advanced communication tools.
 
